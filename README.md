@@ -1,6 +1,6 @@
 # Calorie Calculator Website 🖩
 <p align="center">
-    <img src="results/banner_image.jpg" alt="BannerImage" height="500">
+    <img src="results/banner_image.jpg" alt="BannerImage" height="300">
 </p>
 
 
@@ -44,7 +44,7 @@
         <th>Register Page</th>
         <th>Login Page</th>
         <th>Set Calorie Target</th>
-        <th>Add FoodItem</th>
+        <th>Add Food Item</th>
     </tr>
     <tr>
         <td>
@@ -61,7 +61,7 @@
         </td>
     </tr>
     <tr>
-        <th>FoodItem Analysis</th>
+        <th>Food Item Analysis</th>
         <th>Add Exercise</th>
         <th>Exercise Analysis</th>
         <th>Final Report</th>
