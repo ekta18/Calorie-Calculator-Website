@@ -1,6 +1,6 @@
 # Calorie Calculator Website 🖩
-<p align="center">
-    <img src="results/banner_image.jpg" alt="BannerImage" height="300">
+<p align="left">
+    <img src="results/banner_image.jpg" alt="BannerImage" width="500" height="400">
 </p>
 
 
