@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+            height: 100%;
+            background: #111316;
+		}
+		#form-title{
+			color: #d9083c;
+		}
+		.sub-head{
+			color: white;
+		}
+	</style>
+</head>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div>
+    	<h2 id="form-title">Set Your Calorie Goal</h2>
+    	<br>
+    	<h5 class="sub-head">Enter your calorie limit &nbsp;:&nbsp;</h5>
+    	<input type="number" name="setcalorie" class="" value="">
+    &nbsp;&nbsp;<input type="submit" class="btn btn-outline-danger" value="Submit">
+    </div>
+    
+</form>
+
+{% endblock %}

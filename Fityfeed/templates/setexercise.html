@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+            height: 100%;
+            background: #111316;
+		}
+		#form-title{
+			color: white;
+		}
+		.main{
+			color: #d9083c;
+			font-size: 20px;
+			font-weight: 500;
+		}
+	</style>
+</head>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="main">
+    	<h2 id="form-title">Add Exercise :</h2>
+    	<br>
+    	{{form.as_p}}
+    	<br>
+    	<input type="submit" class="btn btn-lg btn-outline-danger" value="Submit">
+    </div>
+    
+</form>
+
+{% endblock %}

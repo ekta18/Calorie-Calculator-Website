@@ -1,0 +1,137 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<head> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+            height: 100%;
+            background: #111316;
+		}
+		.heading1{
+			color: #d9083c;
+		}
+		.heading2{
+			color: #fff;
+		}
+		#table{
+			background: #14171b;
+		}
+		.heads{
+			color: #d9083c;
+		}
+		.table_head{
+			font-size: 20px;
+		}
+		.tails{
+			color: white;
+		}
+		.tail_content{
+			font-size: 17px;
+		}
+		#additems{
+			font-weight: 500;
+			background: #d9083c;
+			font-size: 18px;
+			color: white;
+		}
+		.result{
+			position: absolute;
+			left: 45%;
+		}
+		.limit{
+			color: #d9083c;
+			position: absolute;
+			left: 70%;
+		}
+
+	</style>
+</head>
+<div class="today">
+	<div class="limit">
+		<h2 class="heading1">Calorie Limit : {{Setlimit}}</h2>
+	</div>
+	<br><br><br>
+	<h2 class="heading2">&nbsp;FoodItems : </h2>
+    <div class="card card-body" id="table">
+        <table class="table table-sm">
+            <tr class="heads">
+                <th class="table_head">Fooditem</th>
+                <th class="table_head">Calories</th>
+                <th class="table_head">Carbs</th>
+                <th class="table_head">Fats</th>
+                <th class="table_head">Proteins</th>
+            </tr>
+            {% for food in foodlist %}
+            <tr class="tails">
+                <td  class="tail_content">{{food.name}}</td>
+                <td  class="tail_content"> {{food.calorie}}</td>
+                <td  class="tail_content"> {{food.carbohydrate}}</td>
+                <td  class="tail_content"> {{food.fats}}</td>
+				<td  class="tail_content"> {{food.protein}}</td>
+			</tr>
+            {% endfor %}
+        </table>
+        <div class="flex-box-row">
+        	<h3 class="heading1">Total no. of items consumed : {{cnt}}</h3>
+        	<h3  class="heading1">Total calories consumed : {{totalcCalories}}</h3>
+         </div>
+	</div>
+	<br>
+	<form action="{% url 'addFooditem' %}" method="POST">
+		{%csrf_token%}
+		<button type="submit" class="btn btn-lg btn-outline-danger" id="additems">
+			<i class="fas fa-plus-square">&nbsp;&nbsp;&nbsp;Add Items</i>
+		</button>
+	</form> 
+	<br>
+	<h2 class="heading2">&nbsp;Exercise : </h2>
+	 <div class="card card-body" id="table">
+        <table class="table table-sm">
+            <tr class="heads">
+                <th class="table_head">Exercise Name</th>
+                <th class="table_head">Duration (in mins)</th>
+                <th class="table_head">Calories burned</th>
+            </tr>
+            {% for exr in exercise %}
+            <tr class="tails">
+                <td  class="tail_content">{{exr.name}}</td>
+                <td  class="tail_content"> {{exr.time}}</td>
+                <td  class="tail_content"> {{exr.calorie}}</td>
+			</tr>
+            {% endfor %}
+        </table>
+        <div class="flex-box-row">
+        	<h3 class="heading1">Total no. of exercise done : {{ecnt}}</h3>
+        	<h3 class="heading1">Total calories burned : {{etotal}}</h3>
+         </div>
+	</div>
+	<br>
+	<form action="{% url 'addExercise' %}" method="POST">
+		{%csrf_token%}
+		<button type="submit" class="btn btn-lg btn-outline-danger" id="additems">
+			<i class="fas fa-plus-square">&nbsp;&nbsp;&nbsp;Add Exercise</i>
+		</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<div class="result">
+		<form action="{% url 'viewresult' %}" method="POST">
+		{%csrf_token%}
+		<button type="submit" class="btn btn-lg btn-outline-danger" id="additems">
+			<i class="fas fa-calculator">&nbsp;&nbsp;&nbsp;Generate Result</i>
+		</button>
+	    </form>
+	    <br><br><br>
+	</div>
+
+</div>
+
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+            height: 100%;
+            background: #111316;
+		}
+		#form-title{
+			color: #d9083c;
+		}
+		.sub-head{
+			color: white;
+		}
+		#search{
+			background: #212529;
+		}
+		#table{
+			background: #14171b;
+		}
+		.heads{
+			color: #d9083c;
+		}
+		.table_head{
+			font-size: 22px;
+		}
+		.tails{
+			color: white;
+		}
+		.tail_content{
+			font-size: 19px;
+		}
+	</style>
+</head>
+<h3 id="form-title">Available Food Items :</h3>
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body" id="search">
+			<form method="get">	
+				{{myfilter.form}}
+		    &nbsp;
+		    <button class="btn btn-outline-danger" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body" id="table">
+			<table class="table table-sm">
+				<tr class="heads">
+					<th class="table_head">Fooditem</th>
+					<th class="table_head">Calories</th>
+					<th class="table_head">Carbs</th>
+					<th class="table_head">Fats</th>
+					<th class="table_head">Proteins</th>
+				</tr>
+				{% for food in fooditem %}
+				<tr class="tails">
+					<td class="tail_content">{{food.name}}</td>
+					<td class="tail_content"> {{food.calorie}}</td>
+					<td class="tail_content"> {{food.carbohydrate}}</td>
+                    <td class="tail_content"> {{food.fats}}</td>
+                    <td class="tail_content"> {{food.protein}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

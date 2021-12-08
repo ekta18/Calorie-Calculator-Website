@@ -1,0 +1,51 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+  .navbar{
+    font-family: 'Orbitron', sans-serif;
+  }
+  .hello-msg{
+    font-size: 20px;
+     margin-right: 20px;
+     font-weight: 550;
+    color: white;
+  }
+  .set{
+    font-size: 20px;
+    font-weight: 550;
+    margin-right: 20px;
+    color: white;
+  }
+  .set:hover{
+      font-weight: 550;
+      color: #d9083c;
+      text-decoration: none;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    &nbsp;
+    <img src="{% static 'images/icon.png' %}" width="60px" height="50px">
+    <a class="navbar-brand" href="{% url 'home' %}" style="font-size:26px; color:#d9083c; font-family: 'Black Ops One', cursive;" >Calorie Tracker&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="{% url 'setcalorie' %}" class="set"> <i class="fas fa-bullseye"></i> Set Calories Goal&nbsp;</a>
+    <a href="{% url 'viewfood' %}" class="set"> <i class="fas fa-list-ol"></i> FoodItems List&nbsp;</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    {% if request.user.is_staff %}
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'fooditem' %}">Fooditem<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'createfooditem' %}">Add more items</a>
+        </li>
+      </ul>
+    {% endif %}
+    </div>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span ><a  class="set" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></span>
+  </nav>

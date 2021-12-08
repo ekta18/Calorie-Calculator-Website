@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block content %}
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+            height: 100%;
+            background: #111316;
+		}
+		.heading{
+			color: #d9083c;
+			font-weight: 700;
+			position: absolute;
+			left: 45%;
+		}
+		.heading1{
+			color: #d9083c;
+		}
+		.heading2{
+			color: #fff;
+		}
+		hr {
+            height: 0.3px;
+            background: white;
+        }
+	</style>
+</head>
+		<h2 class="heading">Final Result :</h2>
+		<br><br>
+		<hr />
+		<br>
+		<h3 class="heading1">Calorie Limit : {{Setlimit}}</h3>
+		<br>
+		<h3 class="heading2">Calories consumed through Food Items : {{totalCalories}}</h3>
+		<br>
+		<h3 class="heading2">Calories burned through Exercise : {{etotalCalories}}</h3>
+		<br>
+		<h3 class="heading2">Total Calories of the day : {{ttotalCalories}}</h3>
+		<br>
+		<h3 class="heading1">Calories Left : {{ CalorieLeft }}</h3>
+
+
+{% endblock %}
